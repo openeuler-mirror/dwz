@@ -1,11 +1,11 @@
 Name: dwz
-Version: 0.12
-Release: 11
+Version: 0.13
+Release: 1
 Summary: A DWARF optimization and duplicate removal tool
 License: GPLv2+ and GPLv3+
 URL: https://sourceware.org/dwz/
-Source0: %{name}-%{version}.tar.bz2
-BuildRequires:gcc elfutils-libelf-devel
+Source0:https://sourceware.org/ftp/dwz/releases/%{name}-%{version}.tar.xz
+BuildRequires:gcc elfutils-libelf-devel dejagnu
 
 %description
 The package contains a program that attempts to optimize DWARF debugging
@@ -19,13 +19,18 @@ using DW_TAG_imported_unit to import it into each CU that needs it.
 %package_help
 
 %prep
-%autosetup -n %{name}-%{version}
+%autosetup -n %{name}
 
 %build
-%make_build
+make %{?_smp_mflags} CFLAGS='%{optflags}' LDFLAGS='%{build_ldflags}' \
+  prefix=%{_prefix} mandir=%{_mandir} bindir=%{_bindir}
+#%%make_build
 
 %install
-%make_install
+#%rm -rf %{buildroot}
+make DESTDIR=%{buildroot} prefix=%{_prefix} mandir=%{_mandir} bindir=%{_bindir} \
+  install
+#%%make_install
 
 %pre
 
@@ -34,6 +39,8 @@ using DW_TAG_imported_unit to import it into each CU that needs it.
 %post
 
 %postun
+%check
+make check
 
 %files
 %defattr(-,root,root,-)
@@ -44,6 +51,12 @@ using DW_TAG_imported_unit to import it into each CU that needs it.
 %{_mandir}/man1/dwz*
 
 %changelog
+* Mon Jul 27 2020wenzhanli<wenzhanli2@huawei.com> - 0.13-1
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:version update 0.13
+
 * Fri Sep 27 2019 chengquan<chengquan3@huawei.com> - 0.12-11
 - Type:bugfix
 - ID:NA
