@@ -1,10 +1,10 @@
 Name: dwz
-Version: 0.12
-Release: 11
+Version: 0.13
+Release: 1
 Summary: A DWARF optimization and duplicate removal tool
 License: GPLv2+ and GPLv3+
 URL: https://sourceware.org/dwz/
-Source0: %{name}-%{version}.tar.bz2
+Source0: https://sourceware.org/ftp/dwz/releases/%{name}-%{version}.tar.xz
 BuildRequires:gcc elfutils-libelf-devel
 
 %description
@@ -19,7 +19,7 @@ using DW_TAG_imported_unit to import it into each CU that needs it.
 %package_help
 
 %prep
-%autosetup -n %{name}-%{version}
+%autosetup -n %{name}
 
 %build
 %make_build
@@ -44,6 +44,9 @@ using DW_TAG_imported_unit to import it into each CU that needs it.
 %{_mandir}/man1/dwz*
 
 %changelog
+* Mon Aug 3 2020 chengquan<chengquan3@huawei.com> - 0.13-1
+- Update software to v0.13
+
 * Fri Sep 27 2019 chengquan<chengquan3@huawei.com> - 0.12-11
 - Type:bugfix
 - ID:NA
