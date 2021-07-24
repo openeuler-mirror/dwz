@@ -1,5 +1,5 @@
 Name: dwz
-Version: 0.13
+Version: 0.14
 Release: 1
 Summary: A DWARF optimization and duplicate removal tool
 License: GPLv2+ and GPLv3+
@@ -51,7 +51,13 @@ make check
 %{_mandir}/man1/dwz*
 
 %changelog
-* Mon Jul 27 2020wenzhanli<wenzhanli2@huawei.com> - 0.13-1
+* Sat Jul 24 2021 shixuantong <shixuantong@huawei.com> - 0.14-1
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:update version to 0.14
+
+* Mon Jul 27 2020 wenzhanli<wenzhanli2@huawei.com> - 0.13-1
 - Type:bugfix
 - ID:NA
 - SUG:NA
