@@ -1,6 +1,6 @@
 Name: dwz
 Version: 0.14
-Release: 2
+Release: 3
 Summary: A DWARF optimization and duplicate removal tool
 License: GPLv2+ and GPLv3+
 URL: https://sourceware.org/dwz/
@@ -8,7 +8,7 @@ Source0:https://sourceware.org/ftp/dwz/releases/%{name}-%{version}.tar.xz
 
 Patch1: testsuite-Handle-readelf-following-links-by-default.patch
 
-BuildRequires:gcc elfutils-libelf-devel dejagnu gcc-c++
+BuildRequires:gcc elfutils-libelf-devel dejagnu gcc-c++ gdb
 
 %description
 The package contains a program that attempts to optimize DWARF debugging
@@ -54,6 +54,12 @@ make check
 %{_mandir}/man1/dwz*
 
 %changelog
+* Mon Mar 07 2022 renhongxun <renhongxun@h-partners.com> - 0.14-3
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:add buildrequires for testcase
+
 * Mon Jan 10 2022 renhongxun <renhongxun@huawei.com> - 0.14-2
 - Type:bugfix
 - ID:NA
