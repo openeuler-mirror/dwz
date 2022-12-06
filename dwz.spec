@@ -1,6 +1,6 @@
 Name: dwz
 Version: 0.14
-Release: 3
+Release: 4
 Summary: A DWARF optimization and duplicate removal tool
 License: GPLv2+ and GPLv3+
 URL: https://sourceware.org/dwz/
@@ -53,6 +53,9 @@ make check
 %{_mandir}/man1/dwz*
 
 %changelog
+* Tue Oct 25 2022 yanglongkang <yanglongkang@h-partners.com> - 0.14-4
+- rebuild for next release
+
 * Tue Jan 25 2022 renhongxun <renhongxun@h-partner.com> - 0.14-3
 - fix testsuite with community patch
 
